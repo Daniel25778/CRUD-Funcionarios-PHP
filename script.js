@@ -14,11 +14,13 @@ function showDeletarFuncionario(idFuncionario) {
     }
 }
 
+/*FUNÇÃO DE EDITAR*/
 
-// function showDeletarFuncionario() {
-//     document.querySelector("#deletarFuncionario").style.display = "flex"
-// }
+function editar(idFuncionario) {
 
-// function exitDeletarFuncionario() {
-//     document.querySelector("#deletarFuncionario").style.display = "none"
-// }
+    //*TESTE DE RECEBIMENTO */
+    // alert(idFuncionario)
+    //*DIRECIONAR PARA ALGUM LUGAR E ENVIAR O ID DO FUNCIONARIO*/
+    window.location = "editar.php?id=" + idFuncionario;
+
+}

@@ -35,15 +35,6 @@ function buscarFuncionario($funcionarios, $nome){
 
     }
 
-    // function deletarFuncionario($nomeArquivo, $id){
-    //     $funcionarios = lerArquivo($nomeArquivo);
-    //     foreach($funcionarios as $funcionario){
-    //         if($funcionario->id == $id){
-    //             unset($funcionario);
-    //         }
-    //     }
-    // }
-
     function deletarFuncionario($nomeArquivo, $idFuncionario){
         $funcionarios = lerArquivo($nomeArquivo);
     
@@ -56,6 +47,20 @@ function buscarFuncionario($funcionarios, $nome){
         $json = json_encode(array_values($funcionarios));
     
         file_put_contents($nomeArquivo, $json);
+    }
+
+    //*BUSCA FUNCIONARIO POR ID:*/
+
+    function buscarFuncionarioPorId($nomeArquivo, $idFuncionario){
+      $funcionarios = lerArquivo($nomeArquivo);
+      
+      foreach($funcionarios as $funcionario){
+        if($funcionario->id == $idFuncionario){
+            return $funcionario;
+        } 
+      }
+       return false;
+
     }
 
     //"id": 9,

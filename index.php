@@ -62,7 +62,7 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
                     <td><?= $funcionario->country?></td>
                     <td><?= $funcionario->department?></td>
                     <td><button type="button"  onclick="showDeletarFuncionario(<?=$funcionario->id?>)">Deletar</button></td>
-                    <td><button type="button">Editar</button></td>
+                    <td><button onclick="editar(<?=$funcionario->id?>)" type="button">Editar</button></td>
                 </tr>
             <?php    
             endforeach;
