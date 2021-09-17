@@ -63,6 +63,20 @@ function buscarFuncionario($funcionarios, $nome){
 
     }
 
+    function editarFuncionario($nomeArquivo, $funcionarioEditado){
+        $funcionarios = lerArquivo($nomeArquivo);
+    
+        foreach($funcionarios as $chave => $funcionario){
+            if($funcionario->id == $funcionarioEditado["id"]){
+                $funcionarios[$chave] = $funcionarioEditado;
+            }
+        }
+    
+        $json = json_encode(array_values($funcionarios));
+    
+        file_put_contents($nomeArquivo, $json);
+    }
+
     //"id": 9,
      //   "first_name": "Geoff",
       //  "last_name": "Sandells",

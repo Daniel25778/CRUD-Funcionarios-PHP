@@ -35,7 +35,7 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
     <button>Buscar</button>
     </form>
     
-    <table class="table" border="1">
+    <table class="table" border="1" >
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -61,8 +61,8 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
                     <td><?= $funcionario->ip_address?></td>
                     <td><?= $funcionario->country?></td>
                     <td><?= $funcionario->department?></td>
-                    <td><button type="button"  onclick="showDeletarFuncionario(<?=$funcionario->id?>)">Deletar</button></td>
-                    <td><button onclick="editar(<?=$funcionario->id?>)" type="button">Editar</button></td>
+                    <td><button  type="button"  onclick="showDeletarFuncionario(<?=$funcionario->id?>)">Deletar</button></td>
+                    <td><button class="material-icons-outlined" onclick="editar(<?=$funcionario->id?>)" type="button">Editar</button></td>
                 </tr>
             <?php    
             endforeach;
@@ -71,25 +71,17 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
         <div id="container-cadastro" >
             <form action="acoes.php" id="formulario" method="POST">
                     <h1>Cadastrar funcionário</h1>
-                    <input type="text" placeholder="Digite o id" name="id" />
+                    <input type="number" placeholder="Digite o id" name="id" />
                     <input type="text" placeholder="Digite o primeiro nome" name="first_name" />
                     <input type="text" placeholder="Digite o sobrenome" name="last_name" />
                     <input type="text" placeholder="Digite o e-mail" name="email" />
                     <input type="text" placeholder="Digite o sexo" name="gender" />
-                    <input type="text" placeholder="Digite o IP" name="ip_address" />
+                    <input type="number" placeholder="Digite o IP" name="ip_address" />
                     <input type="text" placeholder="Digite o país" name="country" />
                     <input type="text" placeholder="Digite o departamento" name="department" />
                     <button>Cadastrar</button>
                     <button type="button" onclick="exitCadastrar()">Cancelar</button>
             </form>  
         </div>
-        <!-- <div id="deletarFuncionario">
-            <form action="acoes.php" method="POST">
-                <h1>Apagar Funcionário</h1>
-                <input type="text" placeholder="Digite o id do funcionario" name="idDeletarFuncionario"/>
-                <button>Deletar</button>
-                <button type="button" onclick="exitDeletarFuncionario()">Cancelar</button>
-            </form> 
-        </div> -->
 </body>
 </html>
