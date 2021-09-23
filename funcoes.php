@@ -77,6 +77,44 @@ function buscarFuncionario($funcionarios, $nome){
         file_put_contents($nomeArquivo, $json);
     }
 
+    function realizarLogin($usuario, $senha, $dados){
+        foreach($dados as $dado){
+            if($dado->usuario == $usuario && $dado->senha == $senha){
+                    //* VARIAVEL DE SESSÃO *//
+                    $_SESSION["usuario"] = $dado->usuario;
+                    $_SESSION["id"] = session_id();
+                    $_SESSION["data_hora"] = date('d/m/Y - h:i:s');
+                    header("location: area_restrita.php");
+                   exit;
+                    
+            }
+            
+        }
+        header("location: index.php");
+    }
+
+  
+    //VERIFICA SE O PROCESSO DE LOGIN FOI REALIZADO
+
+    function verificarLogin(){
+
+      if($_SESSION["id"] != session_id() || (empty($_SESSION["id"]))){
+
+        header("location: index.php");
+
+      }
+    }
+
+    //**FINALIZAÇÃO LOGIN,DESTRUIR A SESSÃO APÓS DAR O LOGOUT */
+
+function finalizarLogin(){
+    session_unset();//limpa todas as variaveis de sessão
+    session_destroy();
+
+    header("location: index.php");
+
+}
+
     //"id": 9,
      //   "first_name": "Geoff",
       //  "last_name": "Sandells",
