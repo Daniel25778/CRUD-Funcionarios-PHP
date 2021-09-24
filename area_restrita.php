@@ -37,6 +37,14 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
     <input  type="text" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>" name="buscarFuncionario" placeholder="Buscar Funcionário">
     <button type="button" class="novoFuncionario" onclick="showCadastrar()">Cadastrar</button>
     <button>Buscar</button>
+    <div class='toolbar'>
+        <h2>
+            <?php echo 'Olá, ' . strtoupper($_SESSION['usuario']) . ' - Login efetutado em: ' . $_SESSION['data_hora']; ?>
+        </h2>
+        <h2>
+           <a class="material-icons" href="processa_login.php?logout=true">logout</a>
+        </h2>
+    </div>
     </form>
     
     <table class="table" border="1" >
