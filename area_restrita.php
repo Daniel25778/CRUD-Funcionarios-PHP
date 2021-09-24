@@ -25,25 +25,36 @@ if(isset($_GET["buscarFuncionario"])&& $_GET["buscarFuncionario"] != ""){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ceead7302.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Empresa X</title>
 </head>
 <body>
-    <h1>Funcionários da Empresa X</h1>
+    <h1 class="titulo">Funcionários da Empresa X</h1>
     <p>A empresa conta com <?php echo count($funcionarios)?> funcionários
     </p>
-    <form>
+    <form class="buscarFuncionario">
+    
+    <div class="botoesBuscar">
     <input  type="text" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>" name="buscarFuncionario" placeholder="Buscar Funcionário">
     <button type="button" class="novoFuncionario" onclick="showCadastrar()">Cadastrar</button>
     <button>Buscar</button>
+    <i class="fas fa-search"></i>
+    </div>
+    
     <div class='toolbar'>
         <h2>
             <?php echo 'Olá, ' . strtoupper($_SESSION['usuario']) . ' - Login efetutado em: ' . $_SESSION['data_hora']; ?>
+            <a class="material-icons" href="processa_login.php?logout=true">logout</a>
         </h2>
-        <h2>
-           <a class="material-icons" href="processa_login.php?logout=true">logout</a>
-        </h2>
+        
     </div>
     </form>
     
