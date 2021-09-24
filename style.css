@@ -78,6 +78,12 @@ body p {
     width: 45vw;
     height: 10vh;
     border-radius: 20px;
+    transition: all 0.5s;
+}
+
+.botoesBuscar:hover {
+    box-shadow: 5px 5px 5px #000;
+    transform: scale(1.1);
 }
 
 .toolbar {
